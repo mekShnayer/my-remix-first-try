@@ -1,0 +1,89 @@
+html {
+    font-family: sans-serif;
+}
+
+.page-header {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid;
+}
+
+.page-content {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border: 1px solid;
+    border-radius: 16px;
+    row-gap: 16px;
+}
+
+.contacts-container {
+    display: flex;
+    row-gap: 8px;
+    column-gap: 8px;
+    flex-wrap: wrap;
+}
+
+.result-container {
+    display: flex;
+
+}
+
+.contacts-header {
+    font-size: 24px;
+    font-weight: 700;
+    align-self: center;
+}
+
+.contact {
+    display: flex;
+    min-width: 200px;
+    flex-direction: column;
+    flex: 1;
+    row-gap: 8px;
+    border: solid 1px;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.bold {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 4px;
+    font-family: monospace;
+}
+
+.font-24 {
+    font-size: 24px;
+}
+
+.align-center {
+    align-self: center;
+}
+
+.loader {
+    width: 400px;
+    height: 1.5em;
+    background: linear-gradient(to right, #eeeeee 4%, #dddddd 25%, #eeeeee 36%);
+    background-size: 1000px 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}

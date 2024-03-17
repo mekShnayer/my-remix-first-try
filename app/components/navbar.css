@@ -1,0 +1,10 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-li {
+    list-style: none;
+    font-size: 14px;
+    align-self: center;
+}
