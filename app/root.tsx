@@ -5,9 +5,11 @@ import {
   LiveReload,
   Meta,
   Outlet,
+  redirect,
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { createEmptyContact } from "./mockData";
 
 
 export const links: LinksFunction = () => [

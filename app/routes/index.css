@@ -2,19 +2,25 @@ html {
     font-family: sans-serif;
 }
 
+body {
+    margin: 0;
+}
+
 .page-header {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #80808061;
+    margin: 0;
+    padding: 10px;
 }
 
 .page-content {
     display: flex;
     flex-direction: column;
     padding: 16px;
-    border: 1px solid;
     border-radius: 16px;
     row-gap: 16px;
+    margin: 0 20px;
 }
 
 .contacts-container {
@@ -41,7 +47,7 @@ html {
     flex-direction: column;
     flex: 1;
     row-gap: 8px;
-    border: solid 1px;
+    border: solid 1px #e5e5e5;
     border-radius: 8px;
     padding: 16px;
 }
@@ -68,6 +74,7 @@ html {
 }
 
 .loader {
+    align-self: center;
     width: 400px;
     height: 1.5em;
     background: linear-gradient(to right, #eeeeee 4%, #dddddd 25%, #eeeeee 36%);
@@ -86,4 +93,17 @@ html {
     100% {
         background-position: 1000px 0;
     }
+}
+
+.form-and-results-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    column-gap: 100px;
+}
+
+.search-result {
+    border: solid #e5e5e5 2px;
+    border-radius: 16px;
+    padding: 16px;
 }

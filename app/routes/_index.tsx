@@ -40,26 +40,29 @@ export default function Index() {
   const [searchParams, setSearchParams] = useSearchParams();
   const firstResult = fetcher.data || undefined
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+    <div style={{ padding: 0, fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <Header />
       <Navbar />
       <div className="page-content">
         <div>wonder who is the author of the book? enter a book name and find out!</div>
-        <fetcher.Form >
-          <input type="text" placeholder="enter book name" name="name"></input>
-          <input type="submit" ></input>
-        </fetcher.Form>
-        {/* <div>{searchParams.getAll("name")}</div> */}
-        <div className="search-result">
+
+        <div className="form-and-results-container">
+          <fetcher.Form >
+            <input type="text" placeholder="enter book name" name="name"></input>
+            <input type="submit" ></input>
+          </fetcher.Form>
+          {/* <div className="search-result"> */}
           {fetcher.state === "loading" ? <div className="loader"></div> :
             firstResult && (
-              <div>
-                <div className="font-24">search result info</div>
+              <div className="search-result">
+                <div className="font-24">search result</div>
                 <div>Title:<span className="bold"> {firstResult.title}</span></div>
                 <div>Author:<span className="bold"> {firstResult.author_name}</span></div>
               </div>)
           }
+          {/* </div> */}
         </div>
+
 
 
       </div>

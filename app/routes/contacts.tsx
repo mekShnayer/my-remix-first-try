@@ -1,16 +1,22 @@
-import { LoaderFunction, json } from "@remix-run/node";
+import { LoaderFunction, LoaderFunctionArgs, json } from "@remix-run/node";
 import { Link, Outlet, useLoaderData, useSearchParams } from "@remix-run/react";
 import { Navbar } from "~/components/Navbar";
-import mockData from '../mockData/mockData.json'
+import { getContact, getContacts } from '../mockData'
 import './index.css';
 import { Header } from "~/components/Header";
-export let loader: LoaderFunction = async ({ request }) => {
-    return mockData;
-}
+import invariant from "tiny-invariant";
+export const loader = async ({
+    params,
+}: LoaderFunctionArgs) => {
+    console.log(params)
+    invariant(params.contactId, "Missing contactId param");
+    const contacts = await getContacts();
 
+    return json({ contacts });
+};
 export default function Contacts() {
 
-    const contacts: { name: string; city: string }[] = useLoaderData().contacts
+    const contacts: { name: string; city: string }[] = useLoaderData()
 
     return (
         <div>
@@ -19,7 +25,11 @@ export default function Contacts() {
             <div className="page-content">
                 <div className="font-24 bold align-center">contacts </div>
                 <div className="contacts-container">
-                    {contacts.map(contact => <div className="contact"><div className="bold">{contact.name}</div><div>{contact.city}</div></div>)}
+                    {contacts.map(contact =>
+                        <div className="contact">
+                            <div className="bold">{contact.name}</div>
+                            <div>{contact.city}</div>
+                        </div>)}
                 </div>
                 <Outlet />
             </div>
